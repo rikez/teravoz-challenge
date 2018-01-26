@@ -1,0 +1,30 @@
+{
+  "name": "teravoz-challenge",
+  "version": "0.0.1",
+  "description": "Teravoz mocked client challenge",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "teravoz",
+    "pabx",
+    "dialer",
+    "delegate",
+    "api",
+    "call",
+    "webhook",
+    "mock"
+  ],
+  "author": "Enrico Alvarenga",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "redis": "^2.8.0",
+    "socket.io": "^2.0.4",
+    "uuid": "^3.2.1"
+  }
+}

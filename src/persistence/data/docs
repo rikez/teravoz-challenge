@@ -1,0 +1,136 @@
+POST /actions
+
+Cria uma ação de Dialer.
+
+Exemplo de payload:
+
+{
+  "type": "dialer",
+  "numbers": [ "551122228888", "5511999998888" ],
+  "destination": "900",
+  "destination_type": "queue",
+  "code": "some-code",
+  "retries": "1",
+  "retry_gap": "10s",
+  "ttl": "5m"
+}
+
+POST /actions
+
+-- Delegando uma chamada
+
+{
+  "type": "delegate",
+  "call_id": "1234567890.12345",
+  "destination": "900"
+}
+
+call.new
+
+-- Quando uma chamada é iniciada
+
+{
+  "call_id": "1463669263.30033",
+  "code": "123456",
+  "type": "call.new",
+  "direction": "inbound",
+  "our_number": "0800000000",
+  "their_number": "11999990000",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+
+-- Um exemplo com direction com valor internal
+
+{
+  "call_id": "1463669263.30033",
+  "code": "123456",
+  "type": "call.new",
+  "direction": "internal",
+  "our_number": "100",
+  "their_number": "700",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+
+call.standby
+
+-- Quando uma chamada está em standby, aguardando por uma ação a ser tomada via Delegate.
+
+{
+  "call_id": "1463669263.30033",
+  "code": "123456",
+  "type": "call.standby",
+  "direction": "inbound",
+  "our_number": "0800000000",
+  "their_number": "11991910000",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+
+call.waiting
+
+-- Quando uma chamada, após ser iniciada, está aguardando para ser atendida
+
+{
+  "call_id": "1463669263.30033",
+  "code": "123456",
+  "type": "call.waiting",
+  "direction": "inbound",
+  "our_number": "0800000000",
+  "their_number": "11991910000",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+
+call.ongoing
+ -- Quando uma chamada, após iniciada, foi atendida
+
+ {
+  "call_id": "1463669263.30033",
+  "code": "123456",
+  "type": "call.ongoing",
+  "direction": "inbound",
+  "our_number": "0800000000",
+  "their_number": "11991910000",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+
+call.overflow
+
+-- Quando uma chamada, após iniciada, foi encaminhada para outra fila
+
+{
+  "call_id": "1463669263.30033",
+  "code": "123456",
+  "type": "call.overflow",
+  "direction": "inbound",
+  "our_number": "0800000000",
+  "their_number": "11991910000",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+
+call.finished
+
+-- Quando uma chamada foi finalizada
+
+{
+  "call_id": "1463669263.30033",
+  "code": "123456",
+  "type": "call.finished",
+  "direction": "inbound",
+  "our_number": "0800000000",
+  "their_number": "11991910000",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+
+
+call.recording-available
+-- Quando uma chamada, após ser finalizada, tornou-se disponível para download
+
+{
+  "call_id": "1463669263.30033",
+  "type": "call.recording-available",
+  "url": "https://api.teravoz.com.br/recording/1463669263.30033.wav",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+
+
+
+

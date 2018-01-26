@@ -1,0 +1,11 @@
+
+
+exports.CallStatus = {
+    NEW: 'call.new', // MEANS THAT A NEW CALL WAS CREATED
+    STANDBY: 'call.standby', // MEANS THAT THE CALL IS WAITING TO BE DELEGATED
+    WAITING: 'call.waiting', // MEANS THAT THE CALL IS WAITING TAKEN
+    ONGOING: 'call.ongoing', // MEANS THAT THE CALL IS IN PROGRESS
+    OVERFLOW: 'call.overflow', // MEANS THAT A CALL WAS FORWARDED
+    FINISHED: 'call.finsihed', // MEANS THAT THE CALL IS FINISHED,
+    RECORD_AVAILABLE: 'call.record_available' // MEANS THAT THE CALL RECORD IS AVAILABLE
+}
