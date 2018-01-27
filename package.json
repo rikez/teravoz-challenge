@@ -4,7 +4,10 @@
   "description": "Teravoz mocked client challenge",
   "main": "app.js",
   "scripts": {
-    "test": "npm test"
+    "test": "node_modules/.bin/mocha tests/**/*.js",
+    "lint": "./node_modules/.bin/eslint .eslintrc.json src/**/*.js",
+    "startApi": "node src/api/main.js",
+    "startCall": "node src/app.js"
   },
   "keywords": [
     "teravoz",
@@ -21,10 +24,19 @@
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "colors": "^1.1.2",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "redis": "^2.8.0",
     "socket.io": "^2.0.4",
     "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "mocha": "^5.0.0",
+    "mocha-testdata": "^1.2.0",
+    "nodemon": "^1.14.11"
   }
 }

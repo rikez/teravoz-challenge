@@ -1,8 +1,8 @@
-const { dialEvent } = require('./actions/dial.action');
 
+require('colors');
+require('dotenv').config();
 
-                    
-const bootstrap = () => dialEvent(['5555', '4444','12312321312321', '11111111111111', '999999999', 'dsadas']);
+const { callInitializer } = require('./actions/call.action');
 
+callInitializer();
 
-module.exports = bootstrap;

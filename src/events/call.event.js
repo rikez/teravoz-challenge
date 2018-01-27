@@ -12,29 +12,7 @@ const { logIn } = require('./actor.event');
  * @param {Object} payload 
  */
 const prepareNewCall = function(payload) {
-    const { destination } = payload;
-
-    const agent = getNextAgentAvailable(destination);
-    logIn(agent);
-
-    startNewCallEvent(payload);
-}
-
-/**
- * @description This method puts call in standby, so that delegate in enter in action
- * @param {Object} payload 
- */
-const startNewCallEvent = function(payload) {
-
-    const { dialUniqueCode } = payload;
-
-    const eventName = `${CallStatus.NEW}_${dialUniqueCode}`;
-
-    baseEventDispatcher.
-        watch(eventName, (payload) => callStandByEvent(payload));
-
-    baseEventDispatcher
-        .dispatch(eventName, payload);
+    callStandByEvent(payload)
 }
 
 /**
@@ -51,7 +29,7 @@ const callStandByEvent = function(payload) {
         watch(eventName, (payload) => delegate(payload));
 
     baseEventDispatcher
-        .dispatch(eventName, payload, 1000);
+        .dispatch(eventName, { ...payload, type: CallStatus.STANDBY}, 1000);
 }
 
 

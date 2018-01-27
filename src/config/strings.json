@@ -1,0 +1,4 @@
+{
+    "getPhoneNumber": "Hello, may you please provide us your phone number?",
+    "wrongFormatPhone": "Wrong phone format, please try the following DDD + NUMBER (11940289846)"
+}

@@ -1,27 +1,5 @@
-<html>
 
-<head>
-    <title> <%= title %> </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/main.css" />
-</head>
-
-<body>
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="#">Teravoz Challenge</a>
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="https://github.com/rikez/teravoz-challenge" target="_blank">Github <span class="sr-only">(current)</span></a>
-                </li>
-                </ul>
-            </div>
-        </nav>
-
+<% include header %>
         <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -29,22 +7,24 @@
                     <th>Call ID</th>
                     <th>Actor</th>
                     <th>Number</th>
-                    <th>Number Type</th>
+                    <th>Direction</th>
                     <th>Status</th>
+                    <th>Date</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="call-history">
+                <% for(var i = 0; i < data.length; i++) { %>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>3123123123</td>
-                    <td>enricomalvarenga@gmail.com</td>
-                    <td>11940289846</td>
-                    <td>Returning</td>
-                    <td>Ongoing</td>
+                      <td> <%= i + 1%></td>
+                      <td> <%= JSON.parse(data[i]).call_id %></td>
+                      <td> <%= JSON.parse(data[i]).actor %></td>
+                      <td> <%= JSON.parse(data[i]).their_number %></td>
+                      <td> <%= JSON.parse(data[i]).direction %></td>
+                      <td> <%= JSON.parse(data[i]).type %></td>
+                      <td> <%= JSON.parse(data[i]).timestamp %></td>
                   </tr>
+                <% } %>
                 </tbody>
               </table>
-              
-</body>
 
-</html>
+<% include footer %>

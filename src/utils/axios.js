@@ -1,7 +1,7 @@
 const axios = require('axios');
-const env = require('../config/env.json');
+const env = require('../config/env.json')[process.env.ENV];
 
 
 module.exports = axios.create({
-    baseUrl: `http://localhost:${env.PORT}/v1/api`
+	baseUrl: `http://localhost:${env.PORT}/v1/api`
 });
