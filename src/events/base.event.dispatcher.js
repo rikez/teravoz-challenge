@@ -1,6 +1,7 @@
 const { EventEmitter } = require('events');
 const Axios = require('axios');
 const { logEventTriggered, logApiErrors } = require('../utils/logger');
+const env = require('../config/env')[process.env.ENV || 'DEV'];
 
 
 class BaseEventDispatcher extends EventEmitter {
@@ -38,7 +39,7 @@ class BaseEventDispatcher extends EventEmitter {
 			return;
 		}
 
-		Axios.post('http://localhost:8080/v1/api/webhook', payload)
+		Axios.post(env.WEBHOOK_URL, payload)
 			.then(response => {
             
 				setTimeout(() => {
