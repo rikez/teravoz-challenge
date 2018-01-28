@@ -10,7 +10,8 @@ const Api = function(io) {
      * @param {Express.Response} res 
      */
 	const dial = function(req, res) {
-		dialEvent(['11940289846', '11996763838']);
+
+		dialEvent(['11940289846', '11996763838', '11995651111', '1133849274']);
 
 		res.status(200).json({
 			status: 'Call in progress',

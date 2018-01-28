@@ -146,9 +146,6 @@ const callRecordAvailableEvent = function(client) {
 			// Salva a chamada já com a url;
 			await persist({ ...client, url: payload.url });
 			logCallRecordAvailable(payload.call_id, payload.url);
-			if(client.code) { // means it came from dial action
-				process.exit(0);
-			}
 		});
 
 	baseEventDispatcher
