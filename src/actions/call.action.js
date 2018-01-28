@@ -49,7 +49,7 @@ const checkClientExistsAndDispatchCall = async (number) => {
 			our_number,
 			destination: exists ? QueueType.RETURNING_CLIENT : QueueType.NEW_CLIENT,
 			timestamp: new Date().toISOString() 
-		}, 0);
+		}, 5000);
 
 
 };

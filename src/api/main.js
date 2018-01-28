@@ -15,6 +15,8 @@ process.on('exit', () => {
 });
 process.on('SIGINT', () => {
 	cleanAllPersistentFile();
+	process.exit(0);
+
 });
 
 

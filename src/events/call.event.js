@@ -22,7 +22,7 @@ const prepareNewCall = function(payload, dialing = false) {
 		watch(eventName, (payload) => callStandByEvent(payload));
 
 		baseEventDispatcher
-			.dispatch(eventName, { ...payload, type: CallStatus.NEW}, 1000);
+			.dispatch(eventName, { ...payload, type: CallStatus.NEW}, 5000);
 
 		return;
     }
@@ -45,7 +45,7 @@ const callStandByEvent = function(payload) {
         watch(eventName, (payload) => delegate(payload));
 
     baseEventDispatcher
-        .dispatch(eventName, { ...payload, type: CallStatus.STANDBY}, 1000);
+        .dispatch(eventName, { ...payload, type: CallStatus.STANDBY}, 15000);
 }
 
 
