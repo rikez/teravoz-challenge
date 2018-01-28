@@ -85,17 +85,13 @@ Teravoz API Client Mocked Project.
 
 ### Dialing Mode Steps.
 
+*use localhost:{PORT} or 198.211.105.96:8080 for production testing*
+
 1. Open a terminal, start api with command *npm run api*.
 
 2. Open browser at http://localhost:{PORT}/events
 
-3. Make a POST request to http://localhost:{PORT}/v1/api/dial, passing the following parameter: 
-
-```json 
-{
-  numbers: ['11940289846', '11996763838', '1123232332'],
-}
-```
+3. Make a POST request to http://localhost:{PORT}/v1/api/dial, no parameters are passed, because it already has pre-selected list of numbers.
 
 4. You will see information of the events being logged in console.
 
@@ -111,9 +107,20 @@ Teravoz API Client Mocked Project.
 
 #### You can see current events list by changing env.json WEBHOOK_URL to 198.211.105.96:8080/v1/api/webhook locally.
 
+### Running Tests.
+
+#####npm test
+
 ## Task 4 - Feedback
- 
- Since I've applied to Teravoz NodeJS Fullstack spot, I have been motivated. By showing us the challenge, I told myself, this is going to be tough. Why? I had no knowledge on phone operators companies, PABX, ..etc.
+
+The challenge proposed motivated me to use everything I know about NodeJS. In spite of it is a complex challenge, I could accomplish it well. It was a great experience to take part of. 
+
+I had no knowledge on phone operations in IT. It made me go through the whole Teravoz docs for a better understanding and application design.
+
+The only drawback I see is that if you are currently working, you may not be able to focus on it.
+
+I hope you guys enjoy the app above.
+
  
 
 
