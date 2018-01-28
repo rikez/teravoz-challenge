@@ -7,6 +7,17 @@ const bodyParser = require('body-parser');
 const env = require('../config/env.json')[process.env.ENV ? process.env.ENV : 'DEV'];
 const ejs = require('ejs');
 
+const { cleanAllPersistentFile } = require('../utils/file.cleaner');
+
+// DO all the cleanup.
+process.on('exit', () => {
+	cleanAllPersistentFile();
+});
+process.on('SIGINT', () => {
+	cleanAllPersistentFile();
+});
+
+
 
 
 
