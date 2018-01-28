@@ -1,4 +1,5 @@
 const env = require('../config/env.json')[process.env.ENV ? process.env.ENV : 'DEV'];
+require('colors');
 
 /**
  * @description Logs called events if debug is on

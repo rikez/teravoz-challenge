@@ -13,6 +13,7 @@ const delegate = async function(payload) {
 
     try {
         const { destination, call_id, number} = payload;
+
         const agent = getNextAgentAvailable(destination);
 
         if(!agent) {

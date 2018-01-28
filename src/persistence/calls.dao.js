@@ -1,7 +1,10 @@
 const { writeFileAsync, readFileAsync } = require('../utils/fs.promised');
+const { resolve } = require('path');
+
+// TODO: Fix ENV Call
 const env = require('../config/env.json')[process.env.ENV ? process.env.ENV : 'DEV'];
 
-const path = env.CALLS_PATH;
+const path = resolve(env.CALLS_PATH);
 
 /**
  * @description Method saves call in filesystem

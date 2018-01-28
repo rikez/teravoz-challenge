@@ -8,6 +8,7 @@ const { validateNumbers } = require('../utils/validation');
 const strings = require('../config/strings.json');
 const { prepareNewCall } = require('../events/call.event');
 
+// TODO: Fix ENV Call
 const env = require('../config/env.json')[process.env.ENV ? process.env.ENV : 'DEV'];
 
 const our_number = env.OUR_NUMBER;

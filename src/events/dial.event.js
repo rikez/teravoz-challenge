@@ -1,7 +1,8 @@
 const { prepareNewCall } = require('./call.event');
 const baseEventDispatcher = require('./base.event.dispatcher')('dial');
 const { DialerStatus } = require('../status/dialer.status');
-const { CallStatus } = require('../status/call.status');
+
+// TODO: Fix ENV Call
 const env = require('../config/env.json')[process.env.ENV ? process.env.ENV : 'DEV'];
 
 const our_number = env.OUR_NUMBER;
@@ -26,15 +27,18 @@ const attemptEvent = function(verifiedClients, uniqueDataObject) {
 
 			dialFailureEvent(payload, dialUniqueCode, code);
 		});
-	let attempting = attempt(verifiedClients);
+
+	const attempting = attempt(verifiedClients);
+
 	const mappedData = {
 		type: DialerStatus.ATTEMPT,
-		number: client.number,
+		destination: attempting.client.returning,
+		number: attempting.client.number,
 		success: true
 	};
 
-	//baseEventDispatcher
-		//.dispatch(eventName, attempting);
+	baseEventDispatcher
+		.dispatch(eventName, mappedData);
     
 };
 
@@ -47,13 +51,20 @@ const attemptEvent = function(verifiedClients, uniqueDataObject) {
 const dialFailureEvent = function(payload, dialUniqueCode, code) {
 	const eventName = `${DialerStatus.FAILURE}_${dialUniqueCode}`;
 
+	const { number, destination } = payload;
+
 	baseEventDispatcher
-		.watch(eventName, (payload) =>  console.log(payload));
+		.watch(eventName, (payload) =>  {
+			console.log("Dial has failed");
+			process.exit(0);
+		});
 
 	// Awaits 10 seconds to prepare...
 	setTimeout(() => {
 		baseEventDispatcher.dispatch(eventName, {
-			destination: payload.client.returning,
+			destination,
+			number,
+			code,
 			call_id: dialUniqueCode,
 			type: DialerStatus.FAILURE
 		});
@@ -68,22 +79,22 @@ const dialFailureEvent = function(payload, dialUniqueCode, code) {
  */
 const dialSuccessEvent = function(payload, dialUniqueCode, code) {
 
-	const { returning, number } = payload.client;
+	const { number, destination } = payload;
 
 	const eventName = `${DialerStatus.SUCCESS}_${dialUniqueCode}`;
 
 	baseEventDispatcher
-		.watch(eventName, (payload) => prepareNewCall(payload));
+		.watch(eventName, (payload) => prepareNewCall(payload, true));
 
 	// Awaits 10 seconds to prepare...
 	setTimeout(() => {
 		baseEventDispatcher.dispatch(eventName, {
-			destination: returning,
+			destination,
 			call_id: dialUniqueCode,
-			type: CallStatus.NEW,
+			type: DialerStatus.SUCCESS,
 			direction: 'inbound',
 			timestamp: new Date().toISOString(),
-			number,
+			number: number,
 			code,
 			our_number
 		}, 0);

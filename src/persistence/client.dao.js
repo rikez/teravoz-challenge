@@ -1,8 +1,11 @@
 const { writeFileAsync, readFileAsync } = require('../utils/fs.promised');
-const { validateNumbers } = require('../utils/validation')
+const { validateNumbers } = require('../utils/validation');
+const { resolve } = require('path');
+
+// TODO: Fix ENV Call
 const env = require('../config/env.json')[process.env.ENV ? process.env.ENV : 'DEV'];
 const strings = require('../config/strings.json');
-const path = env.CLIENT_PATH;
+const path = resolve(env.CLIENT_PATH);
 
 /**
  * @description Method saves clients in filesystem, also checks if exists, used by dial actions

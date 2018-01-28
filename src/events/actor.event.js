@@ -4,7 +4,9 @@ const { dequeue } = require('../persistence/queue.dao');
 const { CallStatus } = require('../status/call.status');
 const { logCallRecordAvailable } = require('../utils/logger');
 const { persist } = require('../persistence/calls.dao');
+const { callInitializer } = require('../actions/call.action');
 
+// TODO: Fix ENV Call
 const env = require('../config/env.json')[process.env.ENV ? process.env.ENV : 'DEV'];
 
 const our_number = env.OUR_NUMBER;
@@ -144,7 +146,9 @@ const callRecordAvailableEvent = function(client) {
 			// Salva a chamada já com a url;
 			await persist({ ...client, url: payload.url });
 			logCallRecordAvailable(payload.call_id, payload.url);
-			process.exit(0);
+			if(client.code) { // means it came from dial action
+				process.exit(0);
+			}
 		});
 
 	baseEventDispatcher
