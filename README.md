@@ -65,6 +65,13 @@ Teravoz API Client Mocked Project.
 }
 ```
 
+### Startup
+
+NodeJS Version : 8.9.4
+
+* npm install
+* npm test
+
 
 
 ## Use two screens for testing (Recommended) - Notebook plugged in a Monitor Screen.
@@ -107,9 +114,6 @@ Teravoz API Client Mocked Project.
 
 #### You can see current events list by changing env.json WEBHOOK_URL to 198.211.105.96:8080/v1/api/webhook locally.
 
-### Running Tests.
-
-#####npm test
 
 ## Task 4 - Feedback
 
