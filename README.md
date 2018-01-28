@@ -12,16 +12,20 @@ Back-end: NodeJS (Typescript)
 Front-end: VueJS (Server-side rendering with Nuxt.js),
 Databases: Redis, MySQL
 
-*How is it used*
+##### How is it used
 
+Crescimentum creates many landing pages at unbounce, that makes A/B testing. Then, they spread every landing page link all over the web, facebook, instagram, webinars. 
 
-
+The interesting thing is: They are able to create variations in woocommerce, to sell with a variety of discounts and dates, depeding on landing page.
 
 To check this application in production as well, go to http://lp.crescimentum.com.br/app/home/ , and click on "Garantir Ingresso".
 
 
-It was
+## Task 2 - Ashamed of
 
+It is the application I sent you attached to e-mail as well. I feel ashamed of that because of the code quality, the lack of documentation, patterns,and everything. It is my mom's website. As a consequence it is in my queue of demands for refactorinng.
+
+There is another application I feel ashamed of. It is an internal tool at Crescimentum. It is currently working, however, I can't maintain that due to the poor documentation and lack of understanding of what I did. As a consequence it is almost refactored (not in production yet). It uses AngularJS(1) and NodeJS, check an example at http://app.crescimentum.com.br/#/inscricao/Fundamentos/LF-FL---32.
 
 
 # Task 3 Challenge
