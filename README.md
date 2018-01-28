@@ -16,7 +16,7 @@ Databases: Redis, MySQL
 
 Crescimentum creates many landing pages at unbounce, that makes A/B testing. Then, they spread every landing page link all over the web, facebook, instagram, webinars. 
 
-The interesting thing is: They are able to create variations in woocommerce, to sell with a variety of discounts and dates, depeding on landing page.
+The interesting thing is: They are able to create variations in woocommerce, to sell with a variety of discounts and dates, depending on landing page.
 
 To check this application in production as well, go to http://lp.crescimentum.com.br/app/home/ , and click on "Garantir Ingresso".
 
@@ -62,7 +62,8 @@ Teravoz API Client Mocked Project.
     "BASE_URL_RECORD": " URL OF THE AVAILABLE RECORD",
     "PORT":"API PORT",
     "DEBUG_EVENTS": "SHOULD EVENTS BE LOGGED IN CONSOLE"
-}```
+}
+```
 
 
 
@@ -90,9 +91,11 @@ Teravoz API Client Mocked Project.
 
 3. Make a POST request to http://localhost:{PORT}/v1/api/dial, passing the following parameter: 
 
-```json {
+```json 
+{
   numbers: ['11940289846', '11996763838', '1123232332'],
-}```
+}
+```
 
 4. You will see information of the events being logged in console.
 
