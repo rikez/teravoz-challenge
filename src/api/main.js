@@ -19,9 +19,7 @@ process.on('SIGINT', () => {
 
 });
 
-
-
-
+app.use(express.static('views'));
 
 app.use(bodyParser.json());
 

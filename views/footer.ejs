@@ -1,32 +1,8 @@
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </div>
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-        <script>
-			var socket = io();
-
-			socket.on('connect', function () {
-				console.log('Connecting socket io on the server');
-			});
-
-			socket.on('call-status', function(event) {
-
-				const keys = Object.keys(event);
-				let str = `<div class="card">
-                                <div class="card-block">
-                                    <h4 class="card-title">Call Event</h4>`;
-				for (let key of keys) {
-					if (key === 'url') {
-						str += `<a href="${event.url ? event.url : '#'}" target="_blank" class="card-link">Call Record</a>`;
-						continue;
-					}
-					str += `<p class="card-text">${key}: ${event[key]}</p>`;
-				}
-
-				str += `</div>
-                                </div>`;
-
-				$('#event-content').append(str);
-			});
-
-        </script>
+        <script src="assets/js/app.js"></script>
     </body>
 </html>

@@ -1,0 +1,18 @@
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.t-center {
+    text-align: center;
+}
+
+@media screen and (max-width: 789px) {
+    .bottom-bordered {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .margins {
+        margin: 10px 5px;
+    }
+}
