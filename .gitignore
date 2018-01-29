@@ -2,3 +2,4 @@ node_modules/
 src/config/env.json
 .env
 .idea/workspace.xml
+.idea
