@@ -3,9 +3,14 @@
     margin-top: 20px;
 }
 
+.mt-10 {
+    margin-top: 10px;
+}
+
 .t-center {
     text-align: center;
 }
+
 
 @media screen and (max-width: 789px) {
     .bottom-bordered {

@@ -5,7 +5,7 @@ window.addEventListener('load', (event) => {
 })
 
 const socketStarter = () => {
-
+	let i = 1;
 	const socket = io();
 
 	socket.on('connect', function () {
@@ -15,9 +15,9 @@ const socketStarter = () => {
 	socket.on('call-status', function(event) {
 		$('#no-events-text').css('display', 'none');
 		const keys = Object.keys(event);
-		let str = `<div class="card">
+		let str = `<div class="card mt-10">
                                 <div class="card-block">
-                                    <h4 class="card-title">Call Event</h4>`;
+                                    <h4 class="card-title"> ${i}# Call Event</h4>`;
 
 		for (let key of keys) {
 			if (key === 'url') {
@@ -29,7 +29,8 @@ const socketStarter = () => {
 
 		str += `</div></div>`;
 
-		$('#event-content').append(str);
+		$('#event-content').prepend(str);
+		i++;
 	});
 }
 
